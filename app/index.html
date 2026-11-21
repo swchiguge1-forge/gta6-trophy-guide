@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTA VI Trophy Guide — Road to the Leonida Legend</title>
+<meta name="description" content="An offline guide and tracker for all 55 Grand Theft Auto VI trophies on PlayStation 5: every guide, the platinum roadmap, missable warnings and a saved checklist.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; Offline guide</p>
+    <h1>Road to the Leonida Legend</h1>
+    <p class="subtitle">Every one of the 55 trophies, with a guide in our own words, a roadmap to the platinum, and a checklist that remembers your progress. Works with the network off.</p>
+    <div class="progress-wrap" id="progress-wrap" aria-live="polite">
+      <div class="progress-numbers"><span id="progress-count">0 / 55 earned</span><span id="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+      <p class="progress-note" id="progress-note">Tick a trophy off as you earn it. Your progress is saved in this browser only.</p>
+    </div>
+  </div>
+</header>
+
+<nav class="views" aria-label="Guide sections">
+  <button type="button" class="view-tab is-active" data-view="guide" id="tab-guide">Trophy guide</button>
+  <button type="button" class="view-tab" data-view="roadmap" id="tab-roadmap">Platinum roadmap</button>
+  <button type="button" class="view-tab" data-view="missables" id="tab-missables">Missables <span class="tab-count" id="missable-count"></span></button>
+</nav>
+
+<main>
+  <section id="view-guide" class="view is-active" aria-label="Trophy guide">
+    <div class="toolbar" role="search">
+      <label class="field field-search">
+        <span class="field-label">Search</span>
+        <input type="search" id="search" placeholder="Search name, description or guide&hellip;" autocomplete="off">
+      </label>
+      <label class="field">
+        <span class="field-label">Grade</span>
+        <select id="filter-grade">
+          <option value="">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label class="field">
+        <span class="field-label">Chapter</span>
+        <select id="filter-chapter">
+          <option value="">All chapters</option>
+          <option value="Opening">Opening</option>
+          <option value="Chapter 1">Chapter 1</option>
+          <option value="Chapter 2">Chapter 2</option>
+          <option value="Chapter 3">Chapter 3</option>
+          <option value="Chapter 4">Chapter 4</option>
+          <option value="Story">Story missions</option>
+          <option value="Finale">Finale</option>
+          <option value="Free roam">Free roam</option>
+        </select>
+      </label>
+      <label class="field">
+        <span class="field-label">Kind</span>
+        <select id="filter-kind">
+          <option value="">All kinds</option>
+          <option value="story">Story</option>
+          <option value="activities">Activities</option>
+          <option value="collectibles">Collectibles</option>
+        </select>
+      </label>
+      <label class="check">
+        <input type="checkbox" id="filter-missable">
+        <span>Missable only</span>
+      </label>
+      <label class="check">
+        <input type="checkbox" id="filter-remaining">
+        <span>Not earned yet</span>
+      </label>
+      <label class="check spoiler-check">
+        <input type="checkbox" id="spoiler-toggle">
+        <span>Hide story spoilers</span>
+      </label>
+      <div class="toolbar-actions">
+        <button type="button" id="export-btn">Export progress</button>
+        <button type="button" id="import-btn">Import progress</button>
+        <input type="file" id="import-file" accept="application/json,.json" hidden>
+      </div>
+    </div>
+    <p class="result-line" id="result-line" aria-live="polite"></p>
+    <div class="layout">
+      <ol class="trophy-list" id="trophy-list"></ol>
+      <aside class="detail" id="detail" aria-label="Trophy detail"></aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view" aria-label="Platinum roadmap">
+    <h2>The road to the platinum</h2>
+    <p class="section-intro">Four stages, in the order to play them. Finish one stage before the next where the notes say so: the stranger strands and the missable trophies do not all wait for you.</p>
+    <div class="stages" id="stages"></div>
+    <h3>How the order works</h3>
+    <ol class="order-list">
+      <li><strong>Play the story straight through, chapters 1 to 4 and the finale.</strong> Every chapter and named mission trophy pops as you finish it, and the story is the spine everything else hangs on.</li>
+      <li><strong>Take every stranger strand as its marker appears.</strong> Andy, Kenton, Billy, Randy and Tyrone each have a chain ending in a final mission, and three more strangers are waiting in Leonida. A strand left unfinished can close once the story moves on.</li>
+      <li><strong>Do the activities while you are out in the world anyway.</strong> Races, the shooting range, fishing, the arcade, bowling, meditation and the challenges all count here - one of each activity type also earns its own trophy.</li>
+      <li><strong>Clean up after the credits.</strong> Collectible cards, WAiNK spots, vehicles, garages, exploring every area of Leonida and 100% completion. Nothing in this stage can be missed, so it is safe to leave it all until last.</li>
+    </ol>
+  </section>
+
+  <section id="view-missables" class="view" aria-label="Missable trophies">
+    <h2>Missable trophies — do these on time</h2>
+    <p class="section-intro">These trophies are tied to a moment, a person or a choice that may not come back. Everything else in the guide can be earned in free roam after the story, but these reward playing the moment while it is in front of you.</p>
+    <table class="missable-table">
+      <thead><tr><th>Trophy</th><th>Grade</th><th>When it can be missed</th><th></th></tr></thead>
+      <tbody id="missable-body"></tbody>
+    </table>
+  </section>
+</main>
+
+<footer>
+  <p>Sources for every guide: the official PlayStation trophy descriptions, as listed by Exophase and PSNProfiles (November 2026), and the in-game stats, mission and activity lists of Grand Theft Auto VI on PlayStation 5. Every guide is written in our own words; no guide text is copied from another site. This guide is unofficial and not affiliated with Rockstar Games. No artwork, logo or screenshot from the game is used anywhere in it.</p>
+  <p class="footer-note">Tip: this page saves your checklist in your browser (localStorage). Export it before clearing browser data.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
