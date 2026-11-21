@@ -9,6 +9,7 @@ trophies, each with a step-by-step guide, missable warnings and time notes.
 Features: platinum roadmap in 4 stages, filters by grade / chapter / kind /
 missable, text search, spoiler-hiding setting, and a progress checklist
 (saved locally, with export/import). Runs entirely offline in the browser.
+Every guide is written for the PS5 version, with missable trophies flagged up front.
 
 ## Run it
 
